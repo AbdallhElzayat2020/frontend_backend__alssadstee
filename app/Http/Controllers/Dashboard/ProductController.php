@@ -30,7 +30,7 @@ class ProductController extends Controller
         $product->setTranslations('description', $data['description'] ?? []);
         $product->slug = !empty($data['slug']) ? $data['slug'] : Product::generateUniqueSlug($data['name']['en']);
         if ($request->hasFile('image')) {
-            $product->image = $request->file('image')->store('products', 'public');
+            $product->image = $request->file('image')->store('products', 'uploads');
         }
         $product->save();
         return redirect()->route('dashboard.products.index')->with('success', 'Product created successfully');
@@ -53,9 +53,9 @@ class ProductController extends Controller
         }
         if ($request->hasFile('image')) {
             if ($product->image) {
-                Storage::disk('public')->delete($product->image);
+                Storage::disk('uploads')->delete($product->image);
             }
-            $product->image = $request->file('image')->store('products', 'public');
+            $product->image = $request->file('image')->store('products', 'uploads');
         }
         $product->save();
         return redirect()->route('dashboard.products.index')->with('success', 'Product updated successfully');
@@ -64,7 +64,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         if ($product->image) {
-            Storage::disk('public')->delete($product->image);
+            Storage::disk('uploads')->delete($product->image);
         }
         $product->delete();
         return redirect()->route('dashboard.products.index')->with('success', 'Product deleted successfully');

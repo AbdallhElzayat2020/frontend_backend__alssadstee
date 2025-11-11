@@ -24,48 +24,48 @@
                         <div class="table-responsive">
                             <table class="table table-hover">
                                 <thead>
-                                    <tr>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Slug</th>
-                                        <th>Date</th>
-                                        <th>Actions</th>
-                                    </tr>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Slug</th>
+                                    <th>Date</th>
+                                    <th>Actions</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($products as $product)
-                                        <tr>
-                                            <td>
-                                                @if($product->image)
-                                                    <img src="{{ asset('storage/' . $product->image) }}"
-                                                        alt="{{ $product->getTranslation('name', 'en') }}" width="60" class="rounded">
-                                                @else
-                                                    <span class="text-muted">No image</span>
-                                                @endif
-                                            </td>
-                                            <td>{{ $product->getTranslation('name', 'en') }}</td>
-                                            <td><code>{{ $product->slug }}</code></td>
-                                            <td>{{ $product->created_at->format('Y-m-d') }}</td>
-                                            <td>
-                                                <div class="d-flex gap-2">
-                                                    <a href="{{ route('dashboard.products.edit', $product) }}"
-                                                        class="btn btn-sm btn-warning">
-                                                        <i class="ti ti-edit me-1"></i>
-                                                        Edit
-                                                    </a>
-                                                    <form action="{{ route('dashboard.products.destroy', $product) }}" method="POST"
-                                                        onsubmit="return confirm('Delete this product?');">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-sm btn-danger">
-                                                            <i class="ti ti-trash me-1"></i>
-                                                            Delete
-                                                        </button>
-                                                    </form>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+                                @foreach ($products as $product)
+                                    <tr>
+                                        <td>
+                                            @if($product->image)
+                                                <img src="{{ asset($product->image) }}"
+                                                     alt="{{ $product->getTranslation('name', 'en') }}" width="60" class="rounded">
+                                            @else
+                                                <span class="text-muted">No image</span>
+                                            @endif
+                                        </td>
+                                        <td>{{ $product->getTranslation('name', 'en') }}</td>
+                                        <td><code>{{ $product->slug }}</code></td>
+                                        <td>{{ $product->created_at->format('Y-m-d') }}</td>
+                                        <td>
+                                            <div class="d-flex gap-2">
+                                                <a href="{{ route('dashboard.products.edit', $product) }}"
+                                                   class="btn btn-sm btn-warning">
+                                                    <i class="ti ti-edit me-1"></i>
+                                                    Edit
+                                                </a>
+                                                <form action="{{ route('dashboard.products.destroy', $product) }}" method="POST"
+                                                      onsubmit="return confirm('Delete this product?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm btn-danger">
+                                                        <i class="ti ti-trash me-1"></i>
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
