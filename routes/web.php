@@ -47,6 +47,7 @@ Route::group(
         Route::get('/quality', [QualityController::class, 'index'])->name('quality');
 
         Route::get('/quote', [QuoteController::class, 'index'])->name('quote');
+        Route::post('/quote', [QuoteController::class, 'store'])->name('quote.store');
     }
 );
 

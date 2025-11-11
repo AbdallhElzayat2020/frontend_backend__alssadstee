@@ -1,0 +1,25 @@
+<?php
+
+return [
+    'title' => 'Quality',
+    'commitment_title' => 'Our Commitment to Quality and International Standards',
+    'commitment_description_1' => 'We are committed to protecting the environment, the health and safety of our employees, and compliance with international standards such as ISO 14001, ISO 45001, and ISO 50001. We believe that the quality of our products and services is the foundation of our customers\' satisfaction and our continued success.',
+    'commitment_description_2' => 'We are committed to reducing risks related to occupational health and safety, preventing pollution, and managing our operations responsibly. We always strive to improve our performance in all areas to ensure we provide the best products and services to our customers.',
+    'how_we_achieve_title' => 'How We Achieve Our Goals',
+    'how_we_achieve_item1' => 'Applying integrated management systems in all our operations',
+    'how_we_achieve_item2' => 'Understanding stakeholder needs and working to meet them',
+    'how_we_achieve_item3' => 'Compliance with legal and regulatory requirements',
+    'how_we_achieve_item4' => 'Promoting a culture of safety and occupational health in the workplace',
+    'how_we_achieve_item5' => 'Applying strict environmental and safety controls in all operations',
+    'how_we_achieve_item6' => 'Continuously improving occupational health and safety',
+    'how_we_achieve_item7' => 'Setting clear goals and regularly measuring performance',
+    'how_we_achieve_item8' => 'Adopting the best available technologies to reduce environmental impact',
+    'how_we_achieve_item9' => 'Regularly reviewing and updating processes as needed',
+    'how_we_achieve_item10' => 'Implementing comprehensive training programs for all employees',
+    'how_we_achieve_item11' => 'Periodically reviewing policies and performance',
+    'standards_title' => 'International Standards',
+    'standards_iso14001' => 'ISO 14001 - Environmental Management System',
+    'standards_iso45001' => 'ISO 45001 - Occupational Health and Safety',
+    'standards_iso50001' => 'ISO 50001 - Energy Management',
+    'standards_iso9001' => 'ISO 9001 - Quality Management System',
+];

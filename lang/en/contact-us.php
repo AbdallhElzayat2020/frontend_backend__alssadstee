@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'title' => 'Contact Us',
+    'contact_info_title' => 'Contact Information',
+    'contact_info_email' => 'Email',
+    'contact_info_phone' => 'Phone Number',
+    'contact_info_address' => 'Address',
+    'contact_info_working_hours' => 'Working Hours',
+    'contact_info_working_hours_value' => 'Sunday - Thursday: 8:00 AM - 5:00 PM<br>Friday - Saturday: Closed',
+    'contact_info_follow_us' => 'Follow Us',
+    'form_title' => 'Send Us a Message',
+    'form_name' => 'Name',
+    'form_name_placeholder' => 'Enter your name',
+    'form_email' => 'Email',
+    'form_email_placeholder' => 'your@email.com',
+    'form_phone' => 'Phone Number',
+    'form_phone_placeholder' => '05xxxxxxxx',
+    'form_subject' => 'Subject',
+    'form_subject_placeholder' => 'Message subject',
+    'form_message' => 'Message',
+    'form_message_placeholder' => 'Write your message here...',
+    'form_send' => 'Send Message',
+    'success' => 'Thank you! Your message has been sent successfully. We will contact you soon.',
+    'error' => 'Oops! Something went wrong. Please try again.',
+];

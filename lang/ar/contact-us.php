@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'title' => 'تواصل معنا',
+    'contact_info_title' => 'معلومات الاتصال',
+    'contact_info_email' => 'البريد الإلكتروني',
+    'contact_info_phone' => 'رقم الهاتف',
+    'contact_info_address' => 'العنوان',
+    'contact_info_working_hours' => 'ساعات العمل',
+    'contact_info_working_hours_value' => 'الأحد - الخميس: 8:00 ص - 5:00 م<br>الجمعة - السبت: مغلق',
+    'contact_info_follow_us' => 'تابعنا على',
+    'form_title' => 'أرسل لنا رسالة',
+    'form_name' => 'الاسم',
+    'form_name_placeholder' => 'أدخل اسمك',
+    'form_email' => 'البريد الإلكتروني',
+    'form_email_placeholder' => 'your@email.com',
+    'form_phone' => 'رقم الهاتف',
+    'form_phone_placeholder' => '05xxxxxxxx',
+    'form_subject' => 'الموضوع',
+    'form_subject_placeholder' => 'موضوع الرسالة',
+    'form_message' => 'الرسالة',
+    'form_message_placeholder' => 'اكتب رسالتك هنا...',
+    'form_send' => 'إرسال الرسالة',
+    'success' => 'شكراً لك! تم إرسال رسالتك بنجاح وسنتواصل معك قريباً.',
+    'error' => 'عذراً! حدث خطأ ما. يرجى المحاولة مرة أخرى.',
+];

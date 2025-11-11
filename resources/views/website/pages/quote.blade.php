@@ -21,27 +21,13 @@
                         <p class="jobs-subtitle">{{ __('quote.intro_subtitle') }}</p>
                     </div>
 
-                    @if (session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{ session('success') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
-
-                    @if (session('error'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{ session('error') }}
-                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                        </div>
-                    @endif
-
                     <div class="jobs-form-card p-4 p-lg-5 rounded-4 shadow-lg">
                         <h3 class="form-title mb-4">
                             <i class="fas fa-file-invoice-dollar me-2"></i>
                             {{ __('quote.form_title') }}
                         </h3>
 
-                        <form action="{{ route('quote.store') }}" method="POST" id="quoteRequestForm">
+                        <form id="quoteRequestForm" action="{{ route('quote.store') }}" method="POST">
                             @csrf
                             <!-- Company Information -->
                             <div class="form-section mb-4">
@@ -53,47 +39,66 @@
                                     <div class="col-md-6">
                                         <label for="name" class="form-label">{{ __('quote.form_company_name') }}</label>
                                         <input required value="{{ old('name') }}" type="text"
-                                            class="form-control form-control-lg" id="name" name="name"
+                                            class="form-control form-control-lg @error('name') is-invalid @enderror"
+                                            id="name" name="name"
                                             placeholder="{{ __('quote.form_company_name_placeholder') }}" />
+                                        @error('name')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
-                                    @error('name')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">{{ __('quote.form_company_email') }}</label>
                                         <input required value="{{ old('email') }}" type="email"
-                                            class="form-control form-control-lg" id="email" name="email"
+                                            class="form-control form-control-lg @error('email') is-invalid @enderror"
+                                            id="email" name="email"
                                             placeholder="{{ __('quote.form_company_email_placeholder') }}" />
+                                        @error('email')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-6">
                                         <label for="phone" class="form-label">{{ __('quote.form_company_phone') }}</label>
                                         <input required value="{{ old('phone') }}" type="tel"
-                                            class="form-control form-control-lg" id="phone" name="phone"
+                                            class="form-control form-control-lg @error('phone') is-invalid @enderror"
+                                            id="phone" name="phone"
                                             placeholder="{{ __('quote.form_company_phone_placeholder') }}" />
+                                        @error('phone')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
                                     <div class="col-md-6">
                                         <label for="subject" class="form-label">{{ __('quote.form_product_type') }}</label>
-                                        <select required value="{{ old('subject') }}" class="form-select form-select-lg"
+                                        <select required
+                                            class="form-select form-select-lg @error('subject') is-invalid @enderror"
                                             id="subject" name="subject">
                                             <option value="">{{ __('quote.form_select_product_type') }}</option>
-                                            <option value="rebar">{{ __('quote.form_product_rebar') }}</option>
-                                            <option value="pipes">{{ __('quote.form_product_pipes') }}</option>
-                                            <option value="bars">{{ __('quote.form_product_bars') }}</option>
-                                            <option value="other">{{ __('quote.form_product_other') }}</option>
+                                            <option value="rebar" {{ old('subject') == 'rebar' ? 'selected' : '' }}>
+                                                {{ __('quote.form_product_rebar') }}
+                                            </option>
+                                            <option value="pipes" {{ old('subject') == 'pipes' ? 'selected' : '' }}>
+                                                {{ __('quote.form_product_pipes') }}
+                                            </option>
+                                            <option value="bars" {{ old('subject') == 'bars' ? 'selected' : '' }}>
+                                                {{ __('quote.form_product_bars') }}
+                                            </option>
+                                            <option value="other" {{ old('subject') == 'other' ? 'selected' : '' }}>
+                                                {{ __('quote.form_product_other') }}
+                                            </option>
                                         </select>
                                         @error('subject')
-                                            <span class="text-danger">{{ $message }}</span>
+                                            <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    @error('message')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
                                     <div class="col-12">
                                         <label for="message"
                                             class="form-label">{{ __('quote.form_additional_info') }}</label>
-                                        <textarea required class="form-control form-control-lg" id="message" name="message"
-                                            rows="4"
+                                        <textarea
+                                            class="form-control form-control-lg @error('message') is-invalid @enderror"
+                                            id="message" name="message" rows="4"
                                             placeholder="{{ __('quote.form_additional_info_placeholder') }}">{{ old('message') }}</textarea>
+                                        @error('message')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                        @enderror
                                     </div>
 
                                     <!-- Terms and Conditions -->
